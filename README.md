@@ -78,8 +78,8 @@ This project is built using **Laravel** and implements a complete flow from prod
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone  https://github.com/Benaya1947/pt-chipichapa.git
+cd pt-chipichapa
 ```
 
 ---
