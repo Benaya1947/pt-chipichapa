@@ -65,8 +65,8 @@ This project is built using **Laravel** and implements a complete flow from prod
 
 ## 🛠️ Tech Stack
 
-* Laravel
-* PHP
+* Laravel 12
+* PHP 8.2
 * MySQL
 * Bootstrap 5
 * Laravel Breeze
