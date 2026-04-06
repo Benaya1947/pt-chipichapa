@@ -63,9 +63,16 @@
     
 </div>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <a href="/" class="btn btn-outline-secondary btn-sm">
-        Back
-    </a>
+<div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="card shadow p-4" style="width: 500px;">
+        <a href="/invoice/{{ $invoice->id }}/download" class="btn btn-success">
+            Download PDF
+        </a>
+
+        <a href="/" class="btn btn-outline-secondary btn-sm mt-2">
+            Back
+        </a>
+    </div>
 </div>
+
 @endsection

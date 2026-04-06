@@ -63,6 +63,18 @@ This project is built using **Laravel** and implements a complete flow from prod
 
 ---
 
+### 📄 Export Invoice to PDF
+Generate invoice as PDF
+Downloadable and printable receipt
+
+---
+
+### 📧 Email Notification
+* Invoice is automatically sent to the logged-in user's email after checkout
+* Uses SMTP (Mailtrap / Gmail)
+
+---
+
 ## 🛠️ Tech Stack
 
 * Laravel 12
@@ -70,6 +82,7 @@ This project is built using **Laravel** and implements a complete flow from prod
 * MySQL
 * Bootstrap 5
 * Laravel Breeze
+* DomPDF (for PDF export)
 
 ---
 
@@ -139,7 +152,52 @@ php artisan storage:link
 
 ---
 
-### 8. Run Application
+### 8. Configure Email (IMPORTANT)
+
+This project supports sending invoice emails after checkout.
+
+You must configure your own email service in the .env file.
+
+🔹 Option 1: Mailtrap (Recommended for Testing)
+
+  * Register/Login at https://mailtrap.io
+  * Go to Home → Sending → API Tokens
+  * Click Create Token
+  * Copy credentials
+
+MAIL_MAILER=smtp
+MAIL_HOST=live.smtp.mailtrap.io
+MAIL_PORT=587
+MAIL_USERNAME=api
+MAIL_PASSWORD=your_api_token
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=your_verified_mailtrap_email
+MAIL_FROM_NAME="${APP_NAME}"
+
+📌 Notes:
+
+* Uses API Token, not username/password
+* Can send email to real inbox (e.g., Gmail)
+* You must verify your sending domain or use Mailtrap demo email
+
+
+🔹 Option 2: Gmail SMTP (Real Email)
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=your_email@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+📌 Important:
+Each user who clones this project must configure their own SMTP credentials.
+
+---
+
+### 9. Run Application
 
 ```bash
 php artisan serve
@@ -205,7 +263,8 @@ public/storage/images/filename.jpg
 3. Add to cart
 4. Open cart
 5. Checkout
-6. View invoice
+6. Receive email invoice
+7. View / download invoice
 
 ### Admin Flow:
 
@@ -223,6 +282,7 @@ public/storage/images/filename.jpg
 * Cart is stored in **session**, not database
 * Product images are not included in the repository.
 * Please upload images manually after running the project.
+* Email feature requires SMTP configuration
 
 ---
 
@@ -231,7 +291,7 @@ public/storage/images/filename.jpg
 * Update cart quantity (+ / - button)
 * Remove item from cart
 * Search & filter products
-* Export invoice to PDF
+* Improve UI/UX design
 
 ---
 

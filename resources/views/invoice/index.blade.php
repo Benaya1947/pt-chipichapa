@@ -83,6 +83,9 @@
                         </button>
                     </form>
 
+                    <a href="/" class="btn btn-outline-secondary w-100 mt-2">
+                        Back to Shop
+                    </a>
                 </div>
             </div>
 
@@ -97,14 +100,6 @@
             </div>
 
         @endif
-
-        {{-- 🔥 BACK --}}
-        <div class="mt-4">
-            <a href="/" class="btn btn-outline-secondary">
-                Back to Shop
-            </a>
-        </div>
-
     </div>
 </div>
 

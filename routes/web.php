@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/invoice', [InvoiceController::class, 'index'])->middleware('auth');
     Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->middleware('auth');
+
+    Route::get('/invoice/{id}/download', [InvoiceController::class, 'download']);
 });
 
 

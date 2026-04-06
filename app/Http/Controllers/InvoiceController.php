@@ -7,6 +7,9 @@ use App\Models\InvoiceItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\InvoiceMail;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
@@ -97,6 +100,8 @@ class InvoiceController extends Controller
             }
         }
 
+        Mail::to(Auth::user()->email)->send(new InvoiceMail($invoice));
+        
         session()->forget('cart');
 
         return redirect('/invoice/' . $invoice->id);
@@ -110,5 +115,14 @@ class InvoiceController extends Controller
             ->firstOrFail();
 
         return view('invoice.show', compact('invoice'));
+    }
+
+    public function download($id)
+    {
+        $invoice = Invoice::with('items.product.category', 'user')->findOrFail($id);
+
+        $pdf = Pdf::loadView('invoice.pdf', compact('invoice'));
+
+        return $pdf->download('invoice-'.$invoice->invoice_number.'.pdf');
     }
 }
