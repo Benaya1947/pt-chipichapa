@@ -165,6 +165,7 @@ You must configure your own email service in the .env file.
   * Click Create Token
   * Copy credentials
 
+```env
 MAIL_MAILER=smtp
 MAIL_HOST=live.smtp.mailtrap.io
 MAIL_PORT=587
@@ -173,6 +174,7 @@ MAIL_PASSWORD=your_api_token
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=your_verified_mailtrap_email
 MAIL_FROM_NAME="${APP_NAME}"
+```
 
 📌 Notes:
 
@@ -183,6 +185,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 🔹 Option 2: Gmail SMTP (Real Email)
 
+```env
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
@@ -191,6 +194,7 @@ MAIL_PASSWORD=your_app_password
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=your_email@gmail.com
 MAIL_FROM_NAME="${APP_NAME}"
+```
 
 📌 Important:
 Each user who clones this project must configure their own SMTP credentials.
